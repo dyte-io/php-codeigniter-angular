@@ -1,0 +1,28 @@
+<div class="container">
+  <div>
+    <h2>My Doctors</h2>
+    <ul class="doctors">
+      <li *ngFor="let doc of doctors">
+        <h4>{{doc}}</h4>
+        <div>
+          <button [class.selected]="callType === 'audio'" type="button" (click)="onSelect(doc, 'audio')">
+            Audio Call
+          </button>
+          <button [class.selected]="callType === 'video'" type="button" (click)="onSelect(doc, 'video')">
+            Video Call
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="callType === 'audio'" class="meeting" class="audio-meeting">
+    <span>Audio call with {{selectedDoc}} connected...</span>
+    <dyte-clock #clock></dyte-clock>
+    <dyte-participants-audio #meeting></dyte-participants-audio>
+    <button type="button" (click)="onMicToggle()">{{micText}}</button>
+    <button type="button" (click)="onLeave()">Leave Meeting</button>
+  </div>
+  <div *ngIf="callType === 'video'" class="video-meeting">
+    <dyte-meeting #meeting show-setup-screen="true" mode="fill"></dyte-meeting>
+  </div>
+</div>

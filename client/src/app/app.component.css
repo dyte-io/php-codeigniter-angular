@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+}
+.doctors {
+  list-style: none;
+  padding: 0;
+
+  li {
+    margin: 4px;
+    padding: 0 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20vw;
+    background: #ddd;
+  }
+}
+
+.audio-meeting,
+.video-meeting {
+  width: 80vw;
+}
+.video-meeting {
+  height: 100vh;
+}
+
+.audio-meeting {
+  margin-top: 32px;
+}
